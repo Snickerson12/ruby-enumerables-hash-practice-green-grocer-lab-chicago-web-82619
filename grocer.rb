@@ -56,7 +56,3 @@ def checkout(cart, coupons)
   
   total > 100.00 ? (total * 0.90).round : total
 end
-
-
-
-
