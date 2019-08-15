@@ -1,5 +1,17 @@
 def consolidate_cart(cart)
-  hash = Hash[cart.collect {|item| [item, " "]}]
+  hash = {}
+  cart.each do |item|
+    if hash[item.keys[0]]
+      hash[item.keys[0]] += 1
+    else
+      hash[item.keys[0]] = {
+        count: 1,
+        price: item.value[0][:price],
+        clearance: item.value[0][:clearance]
+      }
+    end
+  end
+  hash
 end
 
 def apply_coupons(cart, coupons)
